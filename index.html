@@ -17,7 +17,7 @@ data-callback="handleCredentialResponse">
 
 <script>
 function handleCredentialResponse(response) {
-fetch("https://script.google.com/macros/s/AKfycbwL0qSgpwnNCjyMudHEL0tTFIaq0-YaWj6JD9uHP5VAls1xk-sYe0D0McrA4kylvMRI/exec", {
+fetch("https://script.google.com/macros/s/AKfycbw25izRZ24JuFR5F2elWoYfZ-FWteI4ZSHSU1axMPhEveMTW33HlRSJXKvNfILu48Eb/exec", {
 method: "POST",
 headers: { "Content-Type": "application/json" },
 body: JSON.stringify({ idToken: response.credential })
