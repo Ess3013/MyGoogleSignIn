@@ -17,16 +17,17 @@ data-callback="handleCredentialResponse">
 
 <script>
 function handleCredentialResponse(response) {
-fetch("https://script.google.com/macros/s/AKfycbx3hbNYBfnv7Hd2PoUwOUQ40FCVZtN8tfXRwZaBngQ8-HpQk9eBrVrkwNDYUTaCJ3-U/exec", {
+fetch("https://script.google.com/macros/s/AKfycbwL0qSgpwnNCjyMudHEL0tTFIaq0-YaWj6JD9uHP5VAls1xk-sYe0D0McrA4kylvMRI/exec", {
 method: "POST",
 headers: { "Content-Type": "application/json" },
 body: JSON.stringify({ idToken: response.credential })
 })
 .then(r => r.json())
 .then(data => {
+console.log(data); // See full backend response
 document.getElementById('status').innerText = data.success
 ? "Logged in as: " + data.email
-: "Login failed";
+: "Login failed: " + (data.reason || data.error);
 });
 }
 </script>
