@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+<div id="g_id_onload"
+data-client_id="YOUR_CLIENT_ID.apps.googleusercontent.com"
+data-callback="handleCredentialResponse">
+</div>
+<div class="g_id_signin" data-type="standard"></div>
+
+
+<p id="status"></p>
+
+
+<script>
+function handleCredentialResponse(response) {
+fetch("YOUR_APPS_SCRIPT_WEB_APP_URL", {
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify({ idToken: response.credential })
+})
+.then(r => r.json())
+.then(data => {
+document.getElementById('status').innerText = data.success
+? "Logged in as: " + data.email
+: "Login failed";
+});
+}
+</script>
+</body>
+</html>
