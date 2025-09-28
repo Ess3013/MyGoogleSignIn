@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="1087995803201-40k4cgbkh8cuu10sjhmt4230uod6g9gm.apps.googleusercontent.com">
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 <div id="g_id_onload"
-data-client_id="YOUR_CLIENT_ID.apps.googleusercontent.com"
+data-client_id="1087995803201-40k4cgbkh8cuu10sjhmt4230uod6g9gm.apps.googleusercontent.com"
 data-callback="handleCredentialResponse">
 </div>
 <div class="g_id_signin" data-type="standard"></div>
@@ -17,7 +17,7 @@ data-callback="handleCredentialResponse">
 
 <script>
 function handleCredentialResponse(response) {
-fetch("YOUR_APPS_SCRIPT_WEB_APP_URL", {
+fetch("https://script.google.com/macros/s/AKfycbx3hbNYBfnv7Hd2PoUwOUQ40FCVZtN8tfXRwZaBngQ8-HpQk9eBrVrkwNDYUTaCJ3-U/exec", {
 method: "POST",
 headers: { "Content-Type": "application/json" },
 body: JSON.stringify({ idToken: response.credential })
